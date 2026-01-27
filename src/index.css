@@ -1,0 +1,40 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(17, 24, 39, 0.12);
+  --shadow: 0 14px 40px rgba(17, 24, 39, 0.12);
+  --radius: 18px;
+
+  --key: #f3f4f6;
+  --keyHover: #e5e7eb;
+
+  --op: #e0f2fe;
+  --opHover: #bae6fd;
+
+  --utility: #fee2e2;
+  --utilityHover: #fecaca;
+
+  --equals: #111827;
+  --equalsHover: #0b1220;
+  --equalsText: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+}
+
+button {
+  font: inherit;
+}

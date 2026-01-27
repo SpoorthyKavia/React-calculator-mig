@@ -1,0 +1,18 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  padding: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  width: min(380px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

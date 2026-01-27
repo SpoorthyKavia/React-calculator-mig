@@ -1,0 +1,56 @@
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 14px;
+}
+
+.key {
+  border: 1px solid var(--border);
+  background: var(--key);
+  border-radius: 14px;
+  padding: 14px 10px;
+  min-height: 52px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background 140ms ease, transform 60ms ease;
+}
+
+.key:hover {
+  background: var(--keyHover);
+}
+
+.key:active {
+  transform: translateY(1px);
+}
+
+.key--utility {
+  background: var(--utility);
+}
+
+.key--utility:hover {
+  background: var(--utilityHover);
+}
+
+.key--op {
+  background: var(--op);
+}
+
+.key--op:hover {
+  background: var(--opHover);
+}
+
+.key--equals {
+  background: var(--equals);
+  color: var(--equalsText);
+  border-color: rgba(17, 24, 39, 0.35);
+}
+
+.key--equals:hover {
+  background: var(--equalsHover);
+}
+
+.key--span2 {
+  grid-column: span 2;
+}

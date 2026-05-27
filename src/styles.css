@@ -7,6 +7,11 @@
     --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     --button-bg: #111827;
     --button-text: #ffffff;
+
+    /* Calculator tokens (theme-aligned) */
+    --surface-2: color-mix(in srgb, var(--surface) 78%, var(--bg));
+    --accent: color-mix(in srgb, var(--button-bg) 86%, #3b82f6);
+    --accent-contrast: var(--button-text);
 }
 
 :root[data-theme='dark'] {
@@ -18,6 +23,10 @@
     --shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
     --button-bg: #e5e7eb;
     --button-text: #111827;
+
+    --surface-2: color-mix(in srgb, var(--surface) 72%, #0b1220);
+    --accent: color-mix(in srgb, var(--button-bg) 65%, #60a5fa);
+    --accent-contrast: #0b1220;
 }
 
 * {
@@ -55,6 +64,7 @@ code {
     border-bottom: 1px solid var(--border);
     background: color-mix(in srgb, var(--surface) 65%, transparent);
     backdrop-filter: blur(10px);
+    gap: 12px;
 }
 
 .brandTitle {
@@ -68,7 +78,14 @@ code {
     color: var(--muted);
 }
 
-.themeToggle {
+.topBarActions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.themeToggle,
+.actionToggle {
     display: inline-flex;
     align-items: baseline;
     gap: 8px;
@@ -78,23 +95,28 @@ code {
     padding: 10px 12px;
     border-radius: 10px;
     cursor: pointer;
+    user-select: none;
 }
 
-.themeToggle:hover {
+.themeToggle:hover,
+.actionToggle:hover {
     filter: brightness(1.03);
 }
 
-.themeToggle:focus-visible {
+.themeToggle:focus-visible,
+.actionToggle:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--button-bg) 25%, transparent);
     outline-offset: 2px;
 }
 
-.themeToggleLabel {
+.themeToggleLabel,
+.actionToggleLabel {
     font-size: 12px;
     color: var(--muted);
 }
 
-.themeToggleValue {
+.themeToggleValue,
+.actionToggleValue {
     font-weight: 700;
 }
 
@@ -124,4 +146,113 @@ code {
     margin: 0;
     color: var(--muted);
     line-height: 1.5;
+}
+
+/* Calculator */
+.calc {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.calcHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.calcTitle {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.calcMeta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.chip {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+.chip--muted {
+    color: var(--muted);
+}
+
+.calcDisplay {
+    width: 100%;
+    padding: 14px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.04);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.calcGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calcBtn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    padding: 12px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 650;
+    min-height: 44px;
+    transition: transform 80ms ease, filter 140ms ease;
+}
+
+.calcBtn:hover {
+    filter: brightness(1.04);
+}
+
+.calcBtn:active {
+    transform: translateY(1px);
+}
+
+.calcBtn:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    outline-offset: 2px;
+}
+
+.calcBtn--op {
+    background: color-mix(in srgb, var(--accent) 18%, var(--surface-2));
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+}
+
+.calcBtn--danger {
+    background: color-mix(in srgb, #ef4444 18%, var(--surface-2));
+    border-color: color-mix(in srgb, #ef4444 35%, var(--border));
+}
+
+.calcBtn--wide {
+    grid-column: span 2;
+}
+
+.calcHelp {
+    margin: 2px 0 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.45;
 }
